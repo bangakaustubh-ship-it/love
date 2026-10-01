@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To The Love Of My Life ❤️</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Background Canvas for Hearts -->
+    <canvas id="heartCanvas"></canvas>
+
+    <!-- Ambient Glow Backgrounds -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-heart pulse-heart"></i>
+                <span class="logo-text">To the love of my life</span>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-btn active" data-target="questions-section">
+                    <i class="fa-solid fa-heart-circle-check"></i> Questions
+                </button>
+                <button class="nav-btn" data-target="gallery-section">
+                    <i class="fa-solid fa-images"></i> Photos
+                </button>
+                <button class="nav-btn" data-target="notes-section">
+                    <i class="fa-solid fa-envelope-open-text"></i> Love Notes
+                </button>
+                <button class="nav-btn" data-target="follow-section">
+                    <i class="fa-solid fa-list-check"></i> Follow This
+                </button>
+                <button class="nav-btn" data-target="mannkibaat-section">
+                    <i class="fa-solid fa-comment-dots"></i> Mann Ki Baat
+                </button>
+            </nav>
+            <div class="music-control" id="musicToggle" title="Play Romantic Music">
+                <i class="fa-solid fa-music"></i>
+                <span class="music-label">Music Off</span>
+                <div class="sound-wave">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- SECTION 1: QUESTIONS PAGE -->
+        <section id="questions-section" class="tab-section active">
+            <div class="hero-card glass-card">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-sparkles"></i> Made with endless love for you
+                </div>
+                <h1 class="main-title">To the love of my life ❤️</h1>
+                <p class="subtitle">Before you enter our little magical world, please answer these two quick questions!</p>
+                
+                <div class="questions-wrapper">
+                    <!-- QUESTION 1: Are you angry on me? -->
+                    <div class="question-card" id="q1-card">
+                        <div class="q-step">Question 1 of 2</div>
+                        <h2 class="question-text">Are you angry with me? 🥺</h2>
+                        <p class="q-hint">Be honest, my heart is listening!</p>
+                        
+                        <div class="options-group">
+                            <button class="btn btn-option angry-yes-btn" id="angryYesBtn">
+                                <span class="btn-icon">🥺</span> Yes, a little bit
+                            </button>
+                            <button class="btn btn-option angry-no-btn" id="angryNoBtn">
+                                <span class="btn-icon">❤️</span> No, not at all!
+                            </button>
+                        </div>
+                        
+                        <!-- Response feedback for Question 1 -->
+                        <div class="q-response-box hidden" id="q1Response">
+                            <div class="response-content">
+                                <div class="response-icon" id="q1Icon">❤️</div>
+                                <h3 id="q1Title">Title</h3>
+                                <p id="q1Message">Message</p>
+                                <button class="btn btn-primary" id="q1ContinueBtn">Continue to Question 2 <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QUESTION 2: Do you love me? -->
+                    <div class="question-card hidden" id="q2-card">
+                        <div class="q-step">Question 2 of 2</div>
+                        <h2 class="question-text">Do u love me? 💖</h2>
+                        <p class="q-hint">Choose wisely! (Hint: There's only one true answer 😉)</p>
+                        
+                        <div class="evade-container" id="evadeBox">
+                            <button class="btn btn-love-yes" id="loveYesBtn">
+                                <i class="fa-solid fa-heart"></i> YES! 💕
+                            </button>
+                            <button class="btn btn-love-no" id="loveNoBtn">
+                                <i class="fa-solid fa-heart-crack"></i> No 💔
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUCCESS CELEBRATION MODAL / OVERLAY -->
+                <div class="love-success-box hidden" id="loveSuccess">
+                    <div class="success-hearts">💖 💕 💗 💓 ✨</div>
+                    <h2>I Knew It! I Love You More! 🥰❤️</h2>
+                    <p>You have unlocked our memories gallery & love notes!</p>
+                    <div class="couple-preview-frame">
+                        <img src="assets/images/couple-main.jpg" alt="Our Best Moment" class="hero-couple-img">
+                        <div class="frame-caption">Together is my favorite place to be ✨</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary btn-lg goToGalleryBtn">
+                            <i class="fa-solid fa-images"></i> Explore Photos
+                        </button>
+                        <button class="btn btn-outline btn-lg goToNotesBtn">
+                            <i class="fa-solid fa-envelope"></i> Read Love Letter
+                        </button>
+                        <button class="btn btn-outline btn-lg goToFollowBtn">
+                            <i class="fa-solid fa-list-check"></i> Follow This
+                        </button>
+                        <button class="btn btn-primary btn-lg goToMannKiBaatBtn">
+                            <i class="fa-solid fa-comment-dots"></i> Mann Ki Baat
+                        </button>
+                        <button class="btn btn-secondary btn-lg" id="resetQuestionsBtn">
+                            <i class="fa-solid fa-arrow-rotate-left"></i> Start Over
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PHOTOS NAVIGATION GALLERY -->
+        <section id="gallery-section" class="tab-section">
+            <div class="gallery-header glass-card">
+                <h2>Our Memory Gallery 📸</h2>
+                <p>Moments spent with you are standardly preserved forever in my heart.</p>
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">All Photos</button>
+                    <button class="filter-btn" data-filter="featured">Featured</button>
+                    <button class="filter-btn" data-filter="memories">Special Memories</button>
+                </div>
+            </div>
+
+            <div class="photo-grid" id="photoGrid">
+                <!-- Main Featured Couple Photo -->
+                <div class="photo-card featured" data-category="featured">
+                    <div class="img-wrapper">
+                        <img src="assets/images/couple-main.jpg" alt="To the love of my life">
+                        <div class="img-overlay">
+                            <span class="photo-badge"><i class="fa-solid fa-star"></i> Featured</span>
+                            <h3>My Entire World ❤️</h3>
+                            <p>You and me, creating endless beautiful memories together.</p>
+                            <button class="zoom-btn" onclick="openLightbox('assets/images/couple-main.jpg', 'My Entire World ❤️', 'You and me, creating endless beautiful memories together.')">
+                                <i class="fa-solid fa-expand"></i> View
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Couple Photo 2 -->
+                <div class="photo-card featured" data-category="featured">
+                    <div class="img-wrapper">
+                        <img src="assets/images/couple-photo2.png" alt="Sweet Moment">
+                        <div class="img-overlay">
+                            <span class="photo-badge"><i class="fa-solid fa-heart"></i> Loved</span>
+                            <h3>Precious Moments ✨</h3>
+                            <p>Every single second with you is a blessing I cherish.</p>
+                            <button class="zoom-btn" onclick="openLightbox('assets/images/couple-photo2.png', 'Precious Moments ✨', 'Every single second with you is a blessing I cherish.')">
+                                <i class="fa-solid fa-expand"></i> View
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LOVE NOTES & SECRET MESSAGES -->
+        <section id="notes-section" class="tab-section">
+            <div class="glass-card notes-container">
+                <div class="notes-header">
+                    <h2>Reasons Why I Love You 💌</h2>
+                    <p>Click on any love envelope to read the secret note inside!</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card">
+                                <i class="fa-solid fa-heart-pulse card-icon"></i>
+                                <h3>Reason #1</h3>
+                                <p>Tap to open ✨</p>
+                            </div>
+                            <div class="flip-card-back glass-card">
+                                <h3>Your Kind Heart ❤️</h3>
+                                <p>The way you care, love, and support me makes me fall for you deeper every single day.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card">
+                                <i class="fa-solid fa-face-smile-beam card-icon"></i>
+                                <h3>Reason #2</h3>
+                                <p>Tap to open ✨</p>
+                            </div>
+                            <div class="flip-card-back glass-card">
+                                <h3>Your Beautiful Smile 😍</h3>
+                                <p>Your smile is my favorite view in the whole universe. It literally lights up my whole world.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card">
+                                <i class="fa-solid fa-hands-holding-child card-icon"></i>
+                                <h3>Reason #3</h3>
+                                <p>Tap to open ✨</p>
+                            </div>
+                            <div class="flip-card-back glass-card">
+                                <h3>My Safe Haven 🏡</h3>
+                                <p>In your arms, I feel completely safe, understood, and loved like nowhere else.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front glass-card">
+                                <i class="fa-solid fa-infinity card-icon"></i>
+                                <h3>Reason #4</h3>
+                                <p>Tap to open ✨</p>
+                            </div>
+                            <div class="flip-card-back glass-card">
+                                <h3>Forever & Always ♾️</h3>
+                                <p>No matter what comes our way, I promise to choose you, love you, and stand by you forever!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Handwritten Love Letter Box -->
+                <div class="love-letter-box glass-card">
+                    <div class="letter-stamp"><i class="fa-solid fa-heart"></i></div>
+                    <h3>A Special Letter For You 📜</h3>
+                    <div class="letter-body">
+                        <p class="letter-salutation">My Dearest Love,</p>
+                        <p>Every single day with you feels like a beautiful dream I never want to wake up from. You bring so much joy, warmth, and peace into my life.</p>
+                        <p>Thank you for being my best friend, my confidante, and the love of my life. I promise to cherish you, make you laugh, and love you unconditionally forever!</p>
+                        <p class="letter-closing">Yours Forever & Always,<br><strong>❤️ Kaustubh</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: FOLLOW THIS (OUR LOVE RULES) -->
+        <section id="follow-section" class="tab-section">
+            <div class="glass-card rules-container">
+                <div class="rules-header">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-hand-holding-heart"></i> Promise & Rules
+                    </div>
+                    <h2>Follow This 📜💖</h2>
+                    <p>Our sacred 5 golden rules for an eternal bond!</p>
+                </div>
+
+                <div class="rules-list">
+                    <div class="rule-item glass-card">
+                        <div class="rule-number">1</div>
+                        <div class="rule-icon"><i class="fa-solid fa-hands-holding"></i></div>
+                        <div class="rule-content">
+                            <h3>Hold Hands 🤝</h3>
+                            <p>Always hold my hand tightly and never let go, no matter where life takes us.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item glass-card">
+                        <div class="rule-number">2</div>
+                        <div class="rule-icon"><i class="fa-solid fa-heart"></i></div>
+                        <div class="rule-content">
+                            <h3>Love Me ❤️</h3>
+                            <p>Love me with all your heart, today, tomorrow, and every single day forever.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item glass-card">
+                        <div class="rule-number">3</div>
+                        <div class="rule-icon"><i class="fa-solid fa-lock"></i></div>
+                        <div class="rule-content">
+                            <h3>No Leaving Me 🔒</h3>
+                            <p>No matter how hard things get, promise you will stay by my side always.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item glass-card">
+                        <div class="rule-number">4</div>
+                        <div class="rule-icon"><i class="fa-solid fa-comment-sms"></i></div>
+                        <div class="rule-content">
+                            <h3>No Dry Texts 💬✨</h3>
+                            <p>Send me sweet, cute, and loving messages filled with affection and warmth.</p>
+                        </div>
+                    </div>
+
+                    <div class="rule-item glass-card">
+                        <div class="rule-number">5</div>
+                        <div class="rule-icon"><i class="fa-solid fa-face-smile-wink"></i></div>
+                        <div class="rule-content">
+                            <h3>Miss Me 🥹💕</h3>
+                            <p>Keep me in your sweet thoughts and miss me whenever we are apart.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: MANN KI BAAT -->
+        <section id="mannkibaat-section" class="tab-section">
+            <div class="glass-card mannkibaat-container">
+                <div class="mannkibaat-header">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-heart-pulse"></i> Straight From My Heart
+                    </div>
+                    <h2>Mann Ki Baat 💭💖</h2>
+                    <p>My deepest feelings written exclusively for you</p>
+                </div>
+
+                <div class="mannkibaat-card glass-card">
+                    <div class="floating-heart-bg">💖</div>
+                    <div class="letter-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <blockquote class="mannkibaat-text">
+                        "i loveeee you babbyyyy only youuuu. and i can never love anyone other than u. dnt ever be in doubt abt me. you my last. i want us together walk on same road. my all roads leads to you. if not. i aint walking again. i loveeeee you my loveeeee. my sweathearrtttttt."
+                    </blockquote>
+                    <div class="mannkibaat-footer">
+                        <span class="forever-tag"><i class="fa-solid fa-infinity"></i> Forever Yours</span>
+                        <div class="signature">With endless love, ❤️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX MODAL FOR PHOTOS -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+            <img id="lightboxImg" src="" alt="Zoomed Photo">
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle">Title</h3>
+                <p id="lightboxDesc">Description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element for Romantic Background Music -->
+    <!-- Sweet soft romantic ambient loop -->
+    <audio id="bgMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
